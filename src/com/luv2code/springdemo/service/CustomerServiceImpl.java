@@ -15,7 +15,7 @@ public class CustomerServiceImpl implements CustomerService {
 	// need to inject customer dao
 	@Autowired
 	private CustomerDAO customerDAO;
-
+	
 	@Override
 	@Transactional
 	public List<Customer> getCustomers() {
@@ -25,8 +25,8 @@ public class CustomerServiceImpl implements CustomerService {
 	@Override
 	@Transactional
 	public void saveCustomer(Customer theCustomer) {
+
 		customerDAO.saveCustomer(theCustomer);
-		
 	}
 
 	@Override
@@ -34,5 +34,12 @@ public class CustomerServiceImpl implements CustomerService {
 	public Customer getCustomer(int theId) {
 		
 		return customerDAO.getCustomer(theId);
+	}
+
+	@Override
+	@Transactional
+	public void deleteCustomer(int theId) {
+		
+		customerDAO.deleteCustomer(theId);
 	}
 }
